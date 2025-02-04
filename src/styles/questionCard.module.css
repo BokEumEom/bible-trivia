@@ -1,0 +1,22 @@
+.questionCard {
+  background: #faf8ef; /* 2048 배경 색 */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.questionText {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #776e65; /* 2048 텍스트 색 */
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

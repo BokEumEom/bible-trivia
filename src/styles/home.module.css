@@ -1,0 +1,82 @@
+/* 전체 컨테이너 */
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(135deg, #faf8ef, #f3d6b3); /* 2048 스타일 보드 배경 */
+  font-family: 'Montserrat', sans-serif;
+  color: #776e65;
+}
+
+/* 네비게이션 바 */
+.navBar {
+  width: 100%;
+  background: #bbada0; /* 2048 보드 색상 */
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  color: #f9f6f2;
+}
+
+.navTitle {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.navSubtitle {
+  font-size: 1.2rem;
+}
+
+/* 퀴즈 카테고리 (1열 구조) */
+.quizCategories {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  max-width: 320px;
+  margin-top: 20px;
+}
+
+/* 2048 스타일 타일 카드 */
+.quizCard {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #776e65;
+  text-decoration: none;
+}
+
+/* 타일별 색상 (2048 스타일) */
+.tile2 {
+  background: #eee4da; /* 2 타일 */
+}
+
+.tile4 {
+  background: #ede0c8; /* 4 타일 */
+}
+
+.tile8 {
+  background: #f2b179; /* 8 타일 */
+  color: #fff;
+}
+
+.tile16 {
+  background: #f59563; /* 16 타일 */
+  color: #fff;
+}
+
+/* Hover 시 부드러운 색 변화 */
+.quizCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  opacity: 0.9;
+}
