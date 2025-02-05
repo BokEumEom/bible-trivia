@@ -1,10 +1,11 @@
+// src/components/QuestionCard.jsx
 import OptionButton from "./OptionButton";
 import styles from "../styles/questionCard.module.css";
 
 const QuestionCard = ({ question, onAnswerClick, selectedAnswer }) => {
   return (
     <div className={styles.questionCard}>
-      <h2 className={styles.questionText}>{question.text}</h2>
+      <h2 className={styles.questionText}>{question.question}</h2>
       <div className={styles.options}>
         {question.options.map((option, index) => (
           <OptionButton

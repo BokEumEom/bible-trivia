@@ -15,28 +15,28 @@ const categories = [
     icon: <AcademicCapIcon className={styles.icon} />,
     title: "일반 성경 지식",
     description: "성경의 흥미로운 이야기와 사실에 대한 지식을 테스트해보세요!",
-    link: "/quiz",
+    link: "/quiz?category=knowledge",
     image: "/images/bible_knowledge.webp",
   },
   {
     icon: <BookOpenIcon className={styles.icon} />,
     title: "성경 구절",
     description: "성경의 의미 있는 구절과 그 맥락을 탐구해보세요!",
-    link: "/quiz/verses",
+    link: "/quiz?category=verses",
     image: "/images/bible_verses.webp",
   },
   {
     icon: <UserIcon className={styles.icon} />,
     title: "성경 인물",
     description: "주요 성경 인물들의 감동적인 삶에 대해 배워보세요.",
-    link: "/quiz/characters",
+    link: "/quiz?category=characters",
     image: "/images/bible_characters.webp",
   },
   {
     icon: <ClockIcon className={styles.icon} />,
     title: "성경 역사",
     description: "성경의 역사적 사건들을 깊이 탐구해보세요.",
-    link: "/quiz/history",
+    link: "/quiz?category=history",
     image: "/images/bible_history.webp",
   },
 ];
@@ -54,7 +54,7 @@ const HomePage = () => {
               className={styles.card}
               aria-label={`${category.title} 퀴즈 도전하기`}
             >
-              {/* 카드 상단 이미지 영역 (더 크게) */}
+              {/* 카드 상단 이미지 영역 */}
               <img
                 src={category.image}
                 alt={category.title}

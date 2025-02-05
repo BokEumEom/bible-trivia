@@ -1,66 +1,36 @@
+/* Quiz 페이지 전체 컨테이너 및 질문 카드 영역 스타일 */
 .quizContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
   min-height: 100vh;
   padding: 20px;
-  background: linear-gradient(135deg, #faf8ef, #edc22e); /* 2048 스타일 배경 */
+  /* 배경 이미지를 사용하거나 그라데이션 오버레이와 함께 사용합니다.
+     아래 예시는 그라데이션 오버레이와 배경 이미지를 동시에 적용하는 방법입니다. */
+  background: linear-gradient(135deg, rgba(250,248,239,0.9), rgba(237,194,46,0.9)),
+              url('/images/background.webp');
+  background-size: cover;
+  background-position: center;
   font-family: 'Montserrat', sans-serif;
 }
 
-/* 퀴즈 카드 섹션 */
-.questionSection {
-  background: #f9f6f2;
-  border-radius: 12px;
-  padding: 20px;
-  text-align: center;
-  width: 100%;
-  max-width: 600px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.question {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  color: #776e65;
-}
-
-.options {
+.questionWrapper {
+  flex: 1;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  /* 질문 카드가 부드럽게 나타나는 페이드인 애니메이션 */
+  animation: fadeIn 0.5s ease-in-out;
 }
 
-.optionButton {
-  background: #eee4da; /* 2048 기본 타일 색 */
-  color: #776e65;
-  padding: 15px;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.optionButton:hover {
-  background: #f2b179; /* 2048 호버 타일 색 */
-  transform: translateY(-3px);
-}
-
-.optionButton.correct {
-  background: #8bc34a; /* 정답 색상 */
-  color: white;
-}
-
-.optionButton.incorrect {
-  background: #e57373; /* 오답 색상 */
-  color: white;
-}
-
-/* 점수 표시 */
-.footer {
-  margin-top: 20px;
-  font-size: 1.2rem;
-  color: #333;
-}
+/* 추가적인 Quiz 페이지 관련 스타일이 필요하면 여기에 추가하세요 */
