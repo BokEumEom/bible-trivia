@@ -1,5 +1,12 @@
+// src/pages/HomePage.jsx
 import { Link } from "react-router-dom";
-import { AcademicCapIcon, BookOpenIcon, UserIcon, ClockIcon } from "@heroicons/react/24/solid";
+import {
+  AcademicCapIcon,
+  BookOpenIcon,
+  UserIcon,
+  ClockIcon,
+} from "@heroicons/react/24/solid";
+import Header from "../components/Header";
 import styles from "../styles/home.module.css";
 
 const categories = [
@@ -36,10 +43,7 @@ const categories = [
 const HomePage = () => {
   return (
     <div className={styles.homeContainer}>
-      <header className={styles.navBar}>
-        <h1 className={styles.navTitle}>Bible Trivia</h1>
-        <p className={styles.navSubtitle}>전 연령이 즐길 수 있는 성경 퀴즈 게임</p>
-      </header>
+      <Header />
       <section className={styles.quizCategories}>
         <div className={styles.carousel}>
           {categories.map((category, index) => (
@@ -49,7 +53,7 @@ const HomePage = () => {
               className={styles.card}
               aria-label={`${category.title} 퀴즈 도전하기`}
             >
-              {/* 카드 상단 이미지 */}
+              {/* 카드 상단 이미지 영역 (더 크게) */}
               <img
                 src={category.image}
                 alt={category.title}

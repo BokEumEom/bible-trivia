@@ -9,23 +9,6 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-/* 네비게이션 스타일 */
-.navBar {
-  width: 100%;
-  background: #bbada0; /* 2048 스타일 네비게이션 */
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  color: white;
-}
-
-.navTitle {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: white;
-}
-
 /* 퀴즈 카드 섹션 */
 .questionSection {
   background: #f9f6f2;

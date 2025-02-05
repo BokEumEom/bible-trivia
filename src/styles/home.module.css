@@ -85,7 +85,7 @@
 /* 카드 상단 이미지 (더 크게 표시) */
 .cardImage {
   width: 100%;
-  height: 250px; /* 이미지 높이를 250px로 확대 */
+  height: 300px; /* 이미지 영역을 더 크게 (이전보다 증가) */
   object-fit: cover;
   transition: transform 0.3s ease-in-out;
 }
@@ -97,7 +97,7 @@
 /* 카드 하단 텍스트 영역 */
 .cardContent {
   background: #FFAB70;
-  padding: 15px 20px; /* 텍스트 영역 패딩 조절 */
+  padding: 15px 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -105,17 +105,20 @@
   color: #fff;
 }
 
-/* 카드 제목 */
+/* 카드 제목 스타일 개선 */
 .cardTitle {
-  font-size: 1.5rem;
+  font-size: 1.3rem; /* 폰트 사이즈를 줄임 */
   font-weight: bold;
-  margin: 0 0 10px;
+  margin: 0 0 8px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  border-bottom: 1px solid rgba(255,255,255,0.4);
+  padding-bottom: 5px;
 }
 
-/* 카드 설명 */
+/* 카드 설명 폰트 사이즈 줄임 */
 .cardDescription {
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: 0.9rem; /* 이전보다 조금 작게 */
+  line-height: 1.4;
   margin-bottom: 10px;
 }
 
@@ -125,7 +128,7 @@
   color: #ff6347;
   border: none;
   padding: 10px 20px;
-  font-size: 1rem;
+  font-size: 0.9rem; /* 버튼 폰트도 약간 작게 */
   font-weight: bold;
   border-radius: 8px;
   text-align: center;
@@ -144,15 +147,15 @@
     flex: 0 0 250px;
   }
   .cardImage {
-    height: 220px;
+    height: 260px;
   }
   .cardTitle {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
   .cardDescription {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
   .cardButton {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 }

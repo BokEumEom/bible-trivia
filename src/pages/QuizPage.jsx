@@ -1,6 +1,7 @@
 import { useState } from "react";
 import QuestionCard from "../components/QuestionCard";
 import questions from "../data/questions";
+import Header from "../components/Header";
 import styles from "../styles/quiz.module.css";
 
 const QuizPage = () => {
@@ -27,9 +28,7 @@ const QuizPage = () => {
   return (
     <div className={styles.quizContainer}>
       {/* 상단 네비게이션 */}
-      <header className={styles.navBar}>
-        <h1 className={styles.navTitle}>Bible Trivia</h1>
-      </header>
+      <Header /> {/* Header 컴포넌트 사용 */}
 
       {/* 퀴즈 카드 */}
       <QuestionCard
