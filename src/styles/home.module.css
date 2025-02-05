@@ -1,82 +1,134 @@
+/* src/styles/home.module.css */
+
 /* 전체 컨테이너 */
 .homeContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100vw;
   min-height: 100vh;
   padding: 20px;
-  background: linear-gradient(135deg, #faf8ef, #f3d6b3); /* 2048 스타일 보드 배경 */
-  font-family: 'Montserrat', sans-serif;
-  color: #776e65;
+  background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+  font-family: var(--main-font);
+  color: var(--text-color);
+  animation: fadeIn 0.5s ease-in-out;
+  box-sizing: border-box;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* 네비게이션 바 */
 .navBar {
   width: 100%;
-  background: #bbada0; /* 2048 보드 색상 */
+  background: var(--nav-bg);
   padding: 20px;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 12px;
-  color: #f9f6f2;
+  color: var(--nav-text);
+  margin-bottom: 20px;
 }
 
 .navTitle {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: bold;
+  margin: 0;
 }
 
 .navSubtitle {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin: 0;
 }
 
-/* 퀴즈 카테고리 (1열 구조) */
+/* 퀴즈 카테고리 Carousel */
 .quizCategories {
+  width: 100%;
+}
+
+.carousel {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 10px 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none; /* 스크롤바 숨기기 */
+}
+
+/* 카드 스타일 */
+.card {
+  flex: 0 0 300px;
+  height: 400px; /* 카드의 높이를 400px로 고정 */
+  background: #f2b179; /* 카드 배경색 */
+  border-radius: 16px;
+  padding: 20px;
+  color: #fff;
+  scroll-snap-align: start;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+}
+
+/* 카드 헤더 (카테고리와 즐겨찾기 아이콘) */
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 15px;
-  width: 100%;
-  max-width: 320px;
-  margin-top: 20px;
 }
 
-/* 2048 스타일 타일 카드 */
-.quizCard {
-  width: 100%;
-  padding: 20px;
-  text-align: center;
-  font-size: 1.4rem;
+.category {
+  background: #776e65;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+}
+
+.favoriteIcon {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* 카드 제목 */
+.cardTitle {
+  font-size: 1.5rem;
   font-weight: bold;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  color: #776e65;
+  margin: 10px 0;
+}
+
+/* 카드 설명 */
+.cardDescription {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+/* 카드 버튼 */
+.cardButton {
+  background: #fff;
+  color: #ff6347;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  text-align: center;
   text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-/* 타일별 색상 (2048 스타일) */
-.tile2 {
-  background: #eee4da; /* 2 타일 */
-}
-
-.tile4 {
-  background: #ede0c8; /* 4 타일 */
-}
-
-.tile8 {
-  background: #f2b179; /* 8 타일 */
-  color: #fff;
-}
-
-.tile16 {
-  background: #f59563; /* 16 타일 */
-  color: #fff;
-}
-
-/* Hover 시 부드러운 색 변화 */
-.quizCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-  opacity: 0.9;
+.cardButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

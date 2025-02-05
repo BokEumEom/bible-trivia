@@ -1,19 +1,38 @@
-/* styles/global.css */
+/* src/index.css */
+
+/* 글로벌 기본 스타일 및 CSS 변수 */
 :root {
+  /* 글로벌 기본 스타일 */
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* 홈 페이지 및 2048 스타일 전용 CSS 변수 */
+  --bg-primary: #faf8ef;
+  --bg-secondary: #f3d6b3;
+  --nav-bg: #bbada0;
+  --nav-text: #f9f6f2;
+  --text-color: #776e65;
+  --tile-bg-2: #eee4da;
+  --tile-bg-4: #ede0c8;
+  --tile-bg-8: #f2b179;
+  --tile-bg-16: #f59563;
+  --main-font: 'Montserrat', sans-serif;
+  --border-radius: 12px;
+  --transition-speed: 0.3s;
+  --box-shadow-nav: 0 4px 15px rgba(0, 0, 0, 0.2);
+  --box-shadow-card: 0 6px 12px rgba(0, 0, 0, 0.1);
+  --box-shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
+/* 기본 요소 스타일 */
 a {
   font-weight: 500;
   color: #646cff;
@@ -21,21 +40,6 @@ a {
 }
 a:hover {
   color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  justify-content: center;
-  text-align: center;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
 }
 
 button {
@@ -57,6 +61,24 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* body 스타일은 글로벌 배경과 기본 레이아웃에 영향 */
+body {
+  margin: 0;
+  /* body의 중앙 정렬은 필요에 따라 제거할 수 있음 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+/* 미디어쿼리: Light 모드 적용 */
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
