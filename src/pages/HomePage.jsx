@@ -7,6 +7,7 @@ import {
   ClockIcon,
 } from "@heroicons/react/24/solid";
 import Header from "../components/Header";
+import QuestMap from "../components/QuestMap";
 import styles from "../styles/home.module.css";
 
 const categories = [
@@ -72,6 +73,8 @@ const HomePage = () => {
           ))}
         </div>
       </section>
+      {/* QuestMap 컴포넌트를 홈 화면 하단에 추가 */}
+      <QuestMap />
     </div>
   );
 };
