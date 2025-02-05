@@ -28,7 +28,7 @@ const QuizPage = () => {
     <div className={styles.quizContainer}>
       {/* 상단 네비게이션 */}
       <header className={styles.navBar}>
-        <h1 className={styles.navTitle}>📖 Bible Trivia</h1>
+        <h1 className={styles.navTitle}>Bible Trivia</h1>
       </header>
 
       {/* 퀴즈 카드 */}

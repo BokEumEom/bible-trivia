@@ -1,5 +1,3 @@
-/* src/styles/home.module.css */
-
 /* 전체 컨테이너 */
 .homeContainer {
   display: flex;
@@ -16,26 +14,23 @@
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* 네비게이션 바 */
 .navBar {
   width: 100%;
-  background: var(--nav-bg);
-  padding: 20px;
+  background: #bbada0;
+  padding: 15px;
+  border-radius: 8px;
   text-align: center;
-  color: var(--nav-text);
+  color: white;
   margin-bottom: 20px;
 }
 
 .navTitle {
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   font-weight: bold;
   margin: 0;
 }
@@ -62,48 +57,59 @@
 }
 
 .carousel::-webkit-scrollbar {
-  display: none; /* 스크롤바 숨기기 */
+  display: none;
 }
 
-/* 카드 스타일 */
+/* 아이콘 스타일 */
+.icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  vertical-align: middle;
+  fill: currentColor;
+}
+
+/* 카드 스타일: 상하 분리 레이아웃 */
 .card {
   flex: 0 0 300px;
-  height: 400px; /* 카드의 높이를 400px로 고정 */
-  background: #f2b179; /* 카드 배경색 */
-  border-radius: 16px;
-  padding: 20px;
-  color: #fff;
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
   scroll-snap-align: start;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 카드 상단 이미지 (더 크게 표시) */
+.cardImage {
+  width: 100%;
+  height: 250px; /* 이미지 높이를 250px로 확대 */
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover .cardImage {
+  transform: scale(1.05);
+}
+
+/* 카드 하단 텍스트 영역 */
+.cardContent {
+  background: #FFAB70;
+  padding: 15px 20px; /* 텍스트 영역 패딩 조절 */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-
-/* 카드 헤더 (카테고리와 즐겨찾기 아이콘) */
-.cardHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.category {
-  background: #776e65;
+  flex-grow: 1;
   color: #fff;
-  padding: 5px 10px;
-  border-radius: 12px;
-  font-size: 0.9rem;
-}
-
-.favoriteIcon {
-  font-size: 1.2rem;
-  cursor: pointer;
 }
 
 /* 카드 제목 */
 .cardTitle {
   font-size: 1.5rem;
   font-weight: bold;
-  margin: 10px 0;
+  margin: 0 0 10px;
 }
 
 /* 카드 설명 */
@@ -123,7 +129,6 @@
   font-weight: bold;
   border-radius: 8px;
   text-align: center;
-  text-decoration: none;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
 }
@@ -131,4 +136,23 @@
 .cardButton:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .card {
+    flex: 0 0 250px;
+  }
+  .cardImage {
+    height: 220px;
+  }
+  .cardTitle {
+    font-size: 1.3rem;
+  }
+  .cardDescription {
+    font-size: 0.9rem;
+  }
+  .cardButton {
+    font-size: 0.9rem;
+  }
 }
