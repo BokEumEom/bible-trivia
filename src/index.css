@@ -2,7 +2,7 @@
 
 /* 글로벌 기본 스타일 및 CSS 변수 */
 :root {
-  /* 글로벌 기본 스타일 */
+  /* 기본 스타일 */
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -14,7 +14,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* 홈 페이지 및 2048 스타일 전용 CSS 변수 */
+  /* 홈 페이지 및 2048 스타일 전용 변수 */
   --bg-primary: #faf8ef;
   --bg-secondary: #f3d6b3;
   --nav-bg: #bbada0;
@@ -30,6 +30,19 @@
   --box-shadow-nav: 0 4px 15px rgba(0, 0, 0, 0.2);
   --box-shadow-card: 0 6px 12px rgba(0, 0, 0, 0.1);
   --box-shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.2);
+
+  /* 모달 및 목차 전용 글로벌 변수 */
+  --modal-bg-start: rgba(14, 20, 42, 0.9); /* 진한 블루 그라데이션 시작 색 */
+  --modal-bg-end: rgba(14, 20, 42, 0.7);   /* 진한 블루 그라데이션 끝 색 */
+  --primary-color: #82aaff; /* 밝은 블루 (포인트 컬러) */
+  --primary-alpha-20: rgba(130, 170, 255, 0.2);
+  --text-secondary: #b0b0b0;
+  --bg-color: #0e142a; /* 모달 및 목차 배경 기본색 */
+  --accent-bg: rgba(255, 255, 255, 0.1); /* 강조용 배경색 */
+
+  /* 모션 리듬 시스템 (애니메이션 전환) */
+  --motion-spring: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  --motion-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* 기본 요소 스타일 */
@@ -61,10 +74,9 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-/* body 스타일은 글로벌 배경과 기본 레이아웃에 영향 */
+/* body 스타일 (기본 레이아웃 및 중앙 정렬) */
 body {
   margin: 0;
-  /* body의 중앙 정렬은 필요에 따라 제거할 수 있음 */
   display: flex;
   justify-content: center;
   align-items: center;
