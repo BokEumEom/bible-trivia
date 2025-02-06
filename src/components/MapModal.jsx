@@ -1,13 +1,13 @@
 // src/components/MapModal.jsx
+import { LockClosedIcon, CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/solid";
 import styles from "../styles/mapModal.module.css";
-import { LockClosedIcon, CheckCircleIcon } from "@heroicons/react/24/solid";
 
 const MapModal = ({ quests, onClose, onQuestClick }) => {
   return (
     <div className={styles.modalOverlay}>
       <div className={styles.modal}>
-        <button className={styles.closeBtn} onClick={onClose}>
-          &times;
+        <button className={styles.closeBtn} onClick={onClose} aria-label="Close modal">
+          <XCircleIcon className={styles.closeIcon} />
         </button>
         <h3 className={styles.modalTitle}>퀘스트 탐색</h3>
         <div className={styles.mapContainer}>
@@ -29,7 +29,6 @@ const MapModal = ({ quests, onClose, onQuestClick }) => {
               {quest.status === "locked" ? (
                 <LockClosedIcon className={styles.markerIcon} />
               ) : (
-                // 해제된 퀘스트는 CheckCircleIcon 또는 기본 아이콘을 표시합니다.
                 <CheckCircleIcon className={styles.unlockedIcon} />
               )}
               <span className={styles.markerText}>{quest.title}</span>

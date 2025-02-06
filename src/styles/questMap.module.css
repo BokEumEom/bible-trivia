@@ -37,11 +37,11 @@
 }
 
 .mapTitle {
-  font-size: 1.4rem; /* 폰트 사이즈 축소 */
+  font-size: 1.2rem; /* 폰트 사이즈 축소 */
   margin-bottom: 20px;
   position: relative;
+  color: #776e65;
   z-index: 2;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 /* 슬라이더 뷰: 가로 스크롤 가능한 컨테이너 */
@@ -113,12 +113,6 @@
 .lockIcon {
   width: 1.5rem;
   height: 1.5rem;
-  color: #fff;
-}
-
-.mapIcon {
-  width: 1rem;
-  height: 1rem;
   color: #fff;
 }
 
@@ -195,10 +189,20 @@
   cursor: pointer;
   transition: background 0.3s;
   margin-bottom: 15px;
+  /* inline-flex로 아이콘과 텍스트를 수평 중앙 정렬 */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* 아이콘과 텍스트 사이 간격 */
 }
 
 .findQuestBtn:hover {
   background: #e5533d;
+}
+
+.mapIcon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor; /* 버튼의 텍스트 색상과 동일하게 적용 */
 }
 
 /* 반응형 디자인: 슬라이더 뷰는 그대로 유지 */
