@@ -13,7 +13,7 @@ import styles from "../styles/home.module.css";
 const categories = [
   {
     icon: <AcademicCapIcon className={styles.icon} />,
-    title: "성경 기본본",
+    title: "성경 기본",
     description: "성경의 흥미로운 이야기와 사실에 대한 지식을 테스트해보세요!",
     link: "/quiz?category=knowledge",
     image: "/images/bible_knowledge.webp",

@@ -5,13 +5,18 @@ import QuestionCard from "../components/QuestionCard";
 import Header from "../components/Header";
 import Modal from "../components/Modal";
 import QuestionCountSelector from "../components/QuestionCountSelector";
+import ProgressBar from "../components/ProgressBar";
 import styles from "../styles/quiz.module.css";
 import { knowledge, verses, characters, history } from "../data";
+import { useQuiz } from "../context/QuizContext";
 
 const QuizPage = () => {
   const location = useLocation();
   const query = new URLSearchParams(location.search);
   const category = query.get("category") || "knowledge"; // 기본값은 knowledge
+
+  // QuizContext에서 updateProgress 함수를 가져옴
+  const { updateProgress } = useQuiz();
 
   // 선택한 카테고리에 따라 질문 배열 선택
   let questions;
@@ -34,7 +39,7 @@ const QuizPage = () => {
   // URL에 count 파라미터가 있다면 초기값으로 사용 (숫자형으로 변환)
   const countParam = query.get("count") ? parseInt(query.get("count"), 10) : null;
   const [selectedQuestionCount, setSelectedQuestionCount] = useState(countParam);
-  
+
   // 사용자가 선택한 문제 수만큼 질문 배열을 자르기
   const quizQuestions =
     selectedQuestionCount && questions.length > selectedQuestionCount
@@ -61,15 +66,24 @@ const QuizPage = () => {
 
   const handleAnswerClick = (answer) => {
     setSelectedAnswer(answer);
-    if (answer === question.correct) {
-      setScore(score + 1);
+    const isCorrect = answer === question.correct;
+    // 점수 업데이트: 정답인 경우 1점을 추가
+    const newScore = isCorrect ? score + 1 : score;
+    if (isCorrect) {
+      setScore(newScore);
     }
     setTimeout(() => {
       if (currentQuestionIndex < quizQuestions.length - 1) {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
         setSelectedAnswer(null);
       } else {
+        // 퀴즈 종료 시 QuizContext 업데이트
         setQuizFinished(true);
+        updateProgress(category, {
+          currentQuestion: quizQuestions.length,
+          score: newScore,
+          completed: true,
+        });
       }
     }, 1000);
   };
@@ -89,11 +103,17 @@ const QuizPage = () => {
       <div className={styles.questionWrapper}>
         {!quizFinished ? (
           question ? (
-            <QuestionCard
-              question={question}
-              onAnswerClick={handleAnswerClick}
-              selectedAnswer={selectedAnswer}
-            />
+            <>
+              <QuestionCard
+                question={question}
+                onAnswerClick={handleAnswerClick}
+                selectedAnswer={selectedAnswer}
+              />
+              <ProgressBar
+                current={currentQuestionIndex}
+                total={quizQuestions.length}
+              />
+            </>
           ) : (
             <p>Loading...</p>
           )

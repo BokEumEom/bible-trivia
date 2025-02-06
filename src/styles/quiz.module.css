@@ -2,6 +2,8 @@
 .quizContainer {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 100vw;
   min-height: 100vh;
   padding: 20px;
   /* 배경 이미지를 사용하거나 그라데이션 오버레이와 함께 사용합니다.
@@ -10,7 +12,8 @@
               url('/images/background.webp');
   background-size: cover;
   background-position: center;
-  font-family: 'Montserrat', sans-serif;
+  animation: fadeIn 0.5s ease-in-out;
+  font-family: var(--main-font);
 }
 
 .questionWrapper {
@@ -33,4 +36,46 @@
   }
 }
 
-/* 추가적인 Quiz 페이지 관련 스타일이 필요하면 여기에 추가하세요 */
+/* 반응형 스타일 추가 */
+@media (max-width: 1024px) {
+  .quizContainer {
+    padding: 15px;
+  }
+  
+  .questionWrapper {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .quizContainer {
+    padding: 10px;
+    /* 배경 이미지의 위치와 크기를 조정하여 작은 화면에서 보기 좋게 함 */
+    background-position: center top;
+  }
+  
+  .questionWrapper {
+    padding: 0 5px;
+  }
+  
+  /* 폰트 크기 조정 */
+  .quizContainer, .questionWrapper p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .quizContainer {
+    padding: 8px;
+    background-position: center top;
+  }
+  
+  .questionWrapper {
+    padding: 0 5px;
+  }
+  
+  /* 폰트 크기 및 여백 축소 */
+  .quizContainer, .questionWrapper p {
+    font-size: 0.85rem;
+  }
+}
