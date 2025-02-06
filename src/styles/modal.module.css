@@ -1,63 +1,111 @@
-/* Modal 전용 스타일 */
-
-/* 모달 오버레이: 전체 화면을 덮고 중앙에 모달 창을 위치시킵니다 */
+/* 📌 모달 오버레이 - 어두운 배경 추가 */
 .modalOverlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  /* 서서히 나타나는 애니메이션 */
-  animation: modalFadeIn 0.4s ease-out;
+  animation: modalFadeIn 0.3s ease-out;
 }
 
 @keyframes modalFadeIn {
   from {
     opacity: 0;
+    transform: translateY(100px); /* 아래에서 위로 등장 */
   }
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* 모달 창: 중앙에 표시될 흰색 창 */
+/* 📌 모달 창 - 카드 스타일 적용 */
 .modal {
-  background: #fff;
+  background: linear-gradient(135deg, #ffffff, #f9f9f9);
   padding: 2rem;
-  border-radius: 8px;
+  border-radius: 15px;
   text-align: center;
   max-width: 90%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
+  animation: modalPop 0.4s ease-in-out;
 }
 
-.modal:hover {
-  transform: scale(1.02);
+@keyframes modalPop {
+  from {
+    transform: translateY(100px); /* 아래에서 위로 등장 */
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
-/* 모달 내용 영역: 제목 아래 여백 처리 */
+/* 📌 모달 타이틀 */
+.modalTitle {
+  font-size: 1.8rem;
+  color: #444;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* 📌 모달 내용 영역 */
 .modalContent {
-  margin: 1rem 0;
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 1.5rem;
 }
 
-/* 모달 버튼: '다시 도전하기'와 같은 액션 버튼 스타일 */
+/* 📌 버튼 컨테이너 */
+.modalButtons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* 📌 기본 버튼 스타일 */
+.modalButton, .homeButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 📌 다시 도전하기 버튼 */
 .modalButton {
   background: #ff6347;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s;
-  margin-top: 1rem;
+  color: white;
 }
 
 .modalButton:hover {
   background: #e5533d;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 📌 홈으로 가기 버튼 */
+.homeButton {
+  background: #4CAF50;
+  color: white;
+}
+
+.homeButton:hover {
+  background: #43a047;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 📌 버튼 내 아이콘 스타일 */
+.buttonIcon {
+  width: 20px;
+  height: 20px;
 }
