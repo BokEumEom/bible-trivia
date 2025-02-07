@@ -5,7 +5,7 @@
   align-items: center;
   width: 100vw;
   min-height: 100vh;
-  padding: 20px;
+  padding: 10px;
   /* 배경 이미지를 사용하거나 그라데이션 오버레이와 함께 사용합니다.
      아래 예시는 그라데이션 오버레이와 배경 이미지를 동시에 적용하는 방법입니다. */
   background: linear-gradient(135deg, rgba(250,248,239,0.9), rgba(237,194,46,0.9)),
@@ -39,7 +39,7 @@
 /* 반응형 스타일 추가 */
 @media (max-width: 1024px) {
   .quizContainer {
-    padding: 15px;
+    padding: 10px;
   }
   
   .questionWrapper {
